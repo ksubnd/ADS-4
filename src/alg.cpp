@@ -9,17 +9,6 @@ int countPairs1(int* arr, int len, int value) {
         count += 1;
   return count;
 }
-int countPairs2(int* arr, int len, int value) {
-  int count = 0;
-  for (int i = 0; i < len / 2 + 1; i++)
-    for (int j = len - i - 1; j > i; j--) {
-      if (arr[i] + arr[j] < value)
-        break;
-      else if (arr[i] + arr[j] == value)
-        count += 1;
-    }
-  return count;
-}
 int binSearch(int* arr, int value, int l, int r) {
   if (l > r)
     return -1;
@@ -48,5 +37,16 @@ int countPairs3(int* arr, int len, int value) {
       }
     }
   }
+  return count;
+}
+int countPairs2(int* arr, int len, int value) {
+  int count = 0;
+  for (int i = 0; i < len / 2 + 1; i++)
+    for (int j = len - i - 1; j > i; j--) {
+      if (arr[i] + arr[j] < value)
+        break;
+      else if (arr[i] + arr[j] == value)
+        count += 1;
+    }
   return count;
 }
