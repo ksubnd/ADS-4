@@ -19,7 +19,7 @@ int binSearch(int* arr, int value, int l, int r) {
   else
     return binSearch(arr, value, (r + l) / 2 + 1, r);
 }
-int countPairs3(int* arr, int len, int value) {
+int countPairs2(int* arr, int len, int value) {
   int count = 0;
   for (int i = 0; i < len / 2 + 1; i++) {
     int chislo = value - arr[i];
@@ -39,7 +39,7 @@ int countPairs3(int* arr, int len, int value) {
   }
   return count;
 }
-int countPairs2(int* arr, int len, int value) {
+int countPairs3(int* arr, int len, int value) {
   int count = 0;
   for (int i = 0; i < len / 2 + 1; i++)
     for (int j = len - i - 1; j > i; j--) {
