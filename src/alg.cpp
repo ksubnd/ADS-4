@@ -12,7 +12,7 @@ int countPairs1(int* arr, int len, int value) {
 int countPairs2(int* arr, int len, int value) {
   int count = 0;
   for (int i = 0; i < len / 2 + 1; i++)
-    for (int j = len - 1; j > i; j--) {
+    for (int j = len - i - 1; j > i; j--) {
       if (arr[i] + arr[j] < value)
         break;
       else if (arr[i] + arr[j] == value)
@@ -34,15 +34,15 @@ int countPairs3(int* arr, int len, int value) {
   int count = 0;
   for (int i = 0; i < len / 2 + 1; i++) {
     int chislo = value - arr[i];
-    int bin = binSearch(arr, chislo, 0, len - 1);
+    int bin = binSearch(arr, chislo, i + 1, len - 1);
     if (bin != -1) {
       int l = bin;
-      while (arr[i] + arr[l] == value) {
+      while (l > i && arr[i] + arr[l] == value) {
         count += 1;
         l -= 1;
       }
       int r = bin + 1;
-      while (arr[i] + arr[r] == value) {
+      while (r < len && arr[i] + arr[r] == value) {
         count += 1;
         r += 1;
       }
